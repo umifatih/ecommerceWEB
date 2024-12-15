@@ -1,4 +1,5 @@
-from flask import Blueprint 
+from flask import Blueprint, render_template
+from .forms import LoginForm, SignUpForm
 
 auth = Blueprint('auth', __name__)
 
@@ -8,6 +9,8 @@ def login():
 
 @auth.route('/sign-up')
 def sign_up():
-    return 'ini halaman sign up'
+    form = SignUpForm()
+    
+    return render_template('signup.html', form=form)
 
 
